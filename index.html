@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Stomatologija Milosavljević - stomatološka ordinacija i 3D Ortopan centar u Kraljevu</title>
-<meta name="description" content="Stomatološka ordinacija i 3D Ortopan dijagnostički centar u Kraljevu. Panoramski snimak, opšta stomatologija i tretmani na jednoj adresi. Zakaži pregled." />
+<meta name="description" content="Stomatološka ordinacija i 3D Ortopan dijagnostički centar u Kraljevu. Panoramski snimak, opšta stomatologija, implantologija i protetika na jednoj adresi. Zakaži pregled." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -110,7 +110,7 @@
     letter-spacing:.03em;
     text-transform:uppercase;
     padding:24px;
-    min-height:220px;
+    min-height:160px;
   }
 
   /* ---------- Navbar ---------- */
@@ -136,13 +136,14 @@
   .nav-links{
     display:flex;
     align-items:center;
-    gap:32px;
+    gap:28px;
   }
   .nav-links a{
     font-weight:600;
-    font-size:15px;
+    font-size:14.5px;
     color:var(--text-muted);
     transition:color .15s ease;
+    white-space:nowrap;
   }
   .nav-links a:hover{color:var(--accent);}
   .nav-cta{display:flex;align-items:center;gap:16px;}
@@ -235,9 +236,7 @@
   .hero-img img{width:100%;height:100%;object-fit:cover;}
 
   /* ---------- Bol intro ---------- */
-  .intro{
-    background:var(--accent-soft);
-  }
+  .intro{background:var(--accent-soft);}
   .intro .wrap{max-width:760px;text-align:center;}
   .intro p{
     font-size:20px;
@@ -247,78 +246,134 @@
   }
 
   /* ---------- section heading ---------- */
-  .section-head{max-width:620px;margin-bottom:56px;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head.center{margin-left:auto;margin-right:auto;text-align:center;}
   .section-head h2{font-size:clamp(28px,3.4vw,38px);font-weight:800;}
   .section-head p{margin-top:16px;color:var(--text-muted);font-size:17px;}
 
-  /* ---------- Usluge ---------- */
+  /* ---------- Usluge (kartice, ne fiksan broj) ---------- */
   .services-grid{
     display:grid;
     grid-template-columns:1fr;
-    border-top:1px solid var(--border);
+    gap:24px;
   }
-  @media (min-width:768px){
+  @media (min-width:640px){
+    .services-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (min-width:992px){
     .services-grid{grid-template-columns:repeat(3,1fr);}
   }
   .service-item{
-    padding:32px 0;
-    border-bottom:1px solid var(--border);
+    border:1px solid var(--border);
+    border-radius:var(--radius-card);
+    padding:32px;
+    transition:box-shadow .2s ease, transform .2s ease;
   }
-  @media (min-width:768px){
-    .service-item{
-      padding:40px 32px;
-      border-bottom:none;
-      border-right:1px solid var(--border);
-    }
-    .service-item:last-child{border-right:none;}
+  .service-item:hover{
+    box-shadow:0 16px 36px rgba(21,24,31,.08);
+    transform:translateY(-3px);
   }
   .service-icon{
-    width:56px;height:56px;
+    width:52px;height:52px;
     border-radius:14px;
     background:var(--accent-soft);
     display:flex;align-items:center;justify-content:center;
-    margin-bottom:24px;
+    margin-bottom:22px;
   }
   .service-icon svg{color:var(--accent);}
-  .service-item h3{font-size:21px;font-weight:700;margin-bottom:12px;}
-  .service-item p{color:var(--text-muted);font-size:15.5px;}
+  .service-item h3{font-size:19px;font-weight:700;margin-bottom:10px;}
+  .service-item p{color:var(--text-muted);font-size:15px;}
 
-  /* ---------- O nama ---------- */
-  .about-grid{
+  /* ---------- Spotlight (3D Ortopan) ---------- */
+  .spotlight .wrap{
     display:grid;
     grid-template-columns:1fr;
-    gap:32px;
-    border-top:1px solid var(--border);
-    padding-top:48px;
+    gap:48px;
+    align-items:center;
   }
-  @media (min-width:768px){
-    .about-grid{grid-template-columns:repeat(3,1fr);gap:40px;}
+  @media (min-width:992px){
+    .spotlight .wrap{grid-template-columns:1fr 1fr;gap:64px;}
+    .spotlight .media{order:-1;}
   }
-  .about-item img{
+  .spotlight img{
     width:100%;
-    aspect-ratio:4/3;
+    aspect-ratio:4/3.3;
     object-fit:cover;
     border-radius:var(--radius-img);
-    margin-bottom:24px;
   }
-  .about-item h3{font-size:19px;font-weight:700;margin-bottom:10px;}
-  .about-item p{color:var(--text-muted);font-size:15.5px;}
+  .spotlight h2{font-size:clamp(26px,3.2vw,34px);font-weight:800;margin-top:8px;}
+  .spotlight p.lede{color:var(--text-muted);font-size:17px;margin-top:16px;}
+  .checklist{margin-top:24px;}
+  .checklist li{
+    display:flex;
+    gap:12px;
+    align-items:flex-start;
+    padding:9px 0;
+    font-size:15.5px;
+    color:var(--text);
+  }
+  .checklist svg{flex-shrink:0;color:var(--accent);margin-top:2px;}
 
-  /* ---------- Kontakt / CTA ---------- */
+  /* ---------- Radovi (galerija) ---------- */
+  .gallery-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:24px;
+  }
+  @media (min-width:768px){
+    .gallery-grid{grid-template-columns:repeat(3,1fr);}
+  }
+  .gallery-item img{
+    width:100%;
+    aspect-ratio:1/1;
+    object-fit:cover;
+    border-radius:var(--radius-img);
+    margin-bottom:14px;
+  }
+  .gallery-item p{font-size:14.5px;color:var(--text-muted);}
+  .gallery-note{
+    margin-top:40px;
+    text-align:center;
+    font-size:16px;
+    font-weight:600;
+    color:var(--text);
+  }
+
+  /* ---------- O nama (fact grid) ---------- */
+  .facts-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:32px 40px;
+  }
+  @media (min-width:640px){
+    .facts-grid{grid-template-columns:repeat(2,1fr);}
+  }
+  .fact-item{display:flex;gap:16px;align-items:flex-start;}
+  .fact-item .ic{
+    width:44px;height:44px;flex-shrink:0;
+    border-radius:12px;
+    background:#fff;
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 1px 0 var(--border);
+  }
+  .fact-item .ic svg{color:var(--accent);}
+  .fact-item h4{font-size:16.5px;font-weight:700;margin-bottom:6px;}
+  .fact-item p{font-size:15px;color:var(--text-muted);}
+
+  /* ---------- Kontakt ---------- */
   .contact{background:var(--text);color:#fff;}
   .contact .eyebrow{color:#8fb4ec;}
   .contact .section-head h2{color:#fff;}
   .contact .section-head p{color:rgba(255,255,255,.7);}
-  .contact-items{
+  .contact-grid{
     display:grid;
     grid-template-columns:1fr;
-    gap:32px;
-    margin-bottom:48px;
+    gap:48px;
   }
-  @media (min-width:768px){
-    .contact-items{grid-template-columns:repeat(3,1fr);}
+  @media (min-width:992px){
+    .contact-grid{grid-template-columns:0.9fr 1.1fr;gap:64px;}
   }
-  .contact-item{display:flex;gap:16px;align-items:flex-start;}
+  .contact-item{display:flex;gap:16px;align-items:flex-start;margin-bottom:28px;}
   .contact-item .ic{
     width:44px;height:44px;flex-shrink:0;
     border-radius:12px;
@@ -329,17 +384,64 @@
   .contact-item h4{font-size:16px;font-weight:700;margin-bottom:6px;}
   .contact-item p,.contact-item .ph{font-size:15px;color:rgba(255,255,255,.72);}
   .contact-item .ph{border-color:rgba(255,255,255,.35);}
-  .contact-item ul li{font-size:14.5px;color:rgba(255,255,255,.72);padding:2px 0;display:flex;justify-content:space-between;gap:12px;max-width:220px;}
-  .contact-cta{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:center;
-    gap:20px;
-    padding-top:40px;
-    border-top:1px solid rgba(255,255,255,.14);
+  .contact-item ul li{font-size:14.5px;color:rgba(255,255,255,.72);padding:2px 0;display:flex;justify-content:space-between;gap:12px;max-width:240px;}
+  .contact .placeholder-block{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(255,255,255,.22);
+    color:rgba(255,255,255,.5);
   }
-  .contact .btn-primary{background:#fff;color:var(--accent-dark);}
-  .contact .btn-primary:hover{background:#e8effc;}
+
+  .book-card{
+    background:#fff;
+    color:var(--text);
+    border-radius:var(--radius-card);
+    padding:36px;
+  }
+  .book-card h3{font-size:21px;font-weight:700;margin-bottom:8px;}
+  .book-card > p{color:var(--text-muted);font-size:15px;margin-bottom:24px;}
+  .field-row{display:grid;grid-template-columns:1fr;gap:16px;}
+  @media (min-width:480px){
+    .field-row{grid-template-columns:1fr 1fr;}
+  }
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:13.5px;font-weight:600;margin-bottom:6px;color:var(--text-muted);}
+  .field input,.field select,.field textarea{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid var(--border);
+    border-radius:10px;
+    font-family:inherit;
+    font-size:15px;
+    color:var(--text);
+    background:#fff;
+  }
+  .field textarea{resize:vertical;min-height:90px;}
+  .form-note{font-size:12.5px;color:var(--text-faint);margin-top:14px;}
+  .form-success{
+    display:none;
+    background:var(--accent-soft);
+    color:var(--accent-dark);
+    border-radius:12px;
+    padding:16px 18px;
+    font-weight:600;
+    font-size:15px;
+  }
+  .book-card.sent form{display:none;}
+  .book-card.sent .form-success{display:block;}
+
+  /* ---------- Closing CTA band ---------- */
+  .cta-section{padding-top:0;}
+  .cta-band{
+    background:var(--accent);
+    color:#fff;
+    border-radius:28px;
+    padding:56px 32px;
+    text-align:center;
+  }
+  .cta-band h2{color:#fff;font-size:clamp(26px,3.2vw,34px);margin-bottom:14px;}
+  .cta-band p{color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 28px;font-size:16.5px;}
+  .cta-band .btn-primary{background:#fff;color:var(--accent-dark);}
+  .cta-band .btn-primary:hover{background:#eef3fc;}
 
   /* ---------- Footer ---------- */
   footer{border-top:1px solid var(--border);padding-top:56px;padding-bottom:32px;}
@@ -370,9 +472,9 @@
   }
 
   /* ---------- scroll reveal ---------- */
-  /* Uvek vidljivo (opacity:1) i bez JS-a; JS samo dodaje mali translateY pomeraj
-     kad element uđe u view. Ako IntersectionObserver ne okine, sadržaj ostaje
-     potpuno čitljiv, samo bez suptilnog pomeraja. */
+  /* Uvek vidljivo (bez opacity:0) i bez JS-a; JS samo dodaje mali translateY
+     pomeraj kad element uđe u view. Ako IntersectionObserver ne okine,
+     sadržaj ostaje potpuno čitljiv, samo bez suptilnog pomeraja. */
   .reveal{transform:none;transition:transform .5s ease;}
   .reveal.pre{transform:translateY(14px);}
   .reveal.pre.in-view{transform:none;}
@@ -385,7 +487,8 @@
     <a href="#" class="nav-logo"><img src="assets/logo.png" alt="Stomatologija Milosavljević - logo"></a>
     <nav class="nav-links">
       <a href="#usluge">Usluge</a>
-      <a href="#dijagnostika">3D dijagnostika</a>
+      <a href="#ortopan">3D Ortopan</a>
+      <a href="#radovi">Radovi</a>
       <a href="#o-nama">O nama</a>
       <a href="#kontakt">Kontakt</a>
     </nav>
@@ -399,7 +502,8 @@
   </div>
   <div class="mobile-menu" id="mobileMenu">
     <a href="#usluge">Usluge</a>
-    <a href="#dijagnostika">3D dijagnostika</a>
+    <a href="#ortopan">3D Ortopan</a>
+    <a href="#radovi">Radovi</a>
     <a href="#o-nama">O nama</a>
     <a href="#kontakt">Kontakt</a>
     <a href="#kontakt" class="btn btn-primary">Zakaži pregled</a>
@@ -433,57 +537,136 @@
   <div class="wrap">
     <div class="section-head reveal pre">
       <span class="eyebrow">Usluge</span>
-      <h2>Sve što ti treba za zdrave zube, na jednom mestu</h2>
-      <p>Od dijagnostike do terapije - ne šaljemo te na drugu adresu za nalaze.</p>
+      <h2>Šta radimo u ordinaciji</h2>
+      <p>Od kontrolnog pregleda do implanta i krunice - sve na jednoj adresi, sa istim timom koji zna tvoj slučaj od početka.</p>
     </div>
     <div class="services-grid">
-      <div class="service-item reveal pre" id="dijagnostika">
+      <div class="service-item reveal pre">
         <div class="service-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10M7 12h6"/><circle cx="17" cy="14.5" r="1"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 8h10M7 12h6"/><circle cx="17" cy="14.5" r="1"/></svg>
         </div>
-        <h3>3D Ortopan dijagnostika</h3>
-        <p>Panoramski snimak cele vilice za par minuta, direktno u ordinaciji. Vidiš tačno stanje zuba, korena i kostiju pre nego što odlučiš o terapiji.</p>
+        <h3>3D Ortopan snimanje</h3>
+        <p>Panoramski i 3D snimak vilice. Vidi se sve - umnjaci, kanali, kost. Snimak dobijaš i u digitalnom obliku.</p>
       </div>
       <div class="service-item reveal pre">
         <div class="service-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-2 0-3.5 1.3-4.5 1.3S5 5.3 4 5.3C3 8 3.5 12 5 15c1 2 2 4 3.5 4 1 0 1.2-.7 1.8-.7.6 0 .8.7 1.8.7 1.5 0 2.5-2 3.5-4 1.5-3 2-7 1-9.7-1 0-2.5 1-3.5 1S13.8 5 12 5Z"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5c-2 0-3.5 1.3-4.5 1.3S5 5.3 4 5.3C3 8 3.5 12 5 15c1 2 2 4 3.5 4 1 0 1.2-.7 1.8-.7.6 0 .8.7 1.8.7 1.5 0 2.5-2 3.5-4 1.5-3 2-7 1-9.7-1 0-2.5 1-3.5 1S13.8 5 12 5Z"/></svg>
         </div>
         <h3>Opšta stomatologija</h3>
-        <p>Pregledi, plombe, vađenje zuba i redovna kontrola - sve što ti treba za zdrave zube kroz godinu.</p>
+        <p>Pregled, bele plombe, lečenje kanala, uklanjanje kamenca - ono zbog čega ljudi najčešće i dolaze.</p>
       </div>
       <div class="service-item reveal pre">
         <div class="service-icon">
-          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3 17.7 9.3M4 20l1-4 9.5-9.5a2.1 2.1 0 0 1 3 3L8 19l-4 1Z"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v6"/><path d="M8.5 9h7l-.7 9.2a2.8 2.8 0 0 1-5.6 0L8.5 9Z"/><path d="M9.5 13h5M10 16.5h4"/></svg>
         </div>
-        <h3>Procedure i tretmani</h3>
-        <p>Od estetskih vinira do protetike - dogovaramo tretman koji odgovara stanju tvojih zuba, ne šablon za svakoga.</p>
+        <h3>Implantologija</h3>
+        <p>Ugradnja implanta planirana na osnovu 3D snimka - unapred znamo debljinu kosti i gde tačno ide implant.</p>
+      </div>
+      <div class="service-item reveal pre">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 15V9l3.5 2.5L12 6l4.5 5.5L20 9v6z"/><path d="M4 18h16"/></svg>
+        </div>
+        <h3>Protetika</h3>
+        <p>Krunice, mostovi, proteze. Boju i oblik biramo zajedno pre nego što išta krene u laboratoriju.</p>
+      </div>
+      <div class="service-item reveal pre">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 13.4 8 17 9.4 13.4 10.8 12 14.3 10.6 10.8 7 9.4 10.6 8 12 4.5Z"/><path d="M18 15l.7 1.8 1.8.7-1.8.7-.7 1.8-.7-1.8-1.8-.7 1.8-.7L18 15Z"/></svg>
+        </div>
+        <h3>Estetika osmeha</h3>
+        <p>Beljenje zuba i keramičke fasete. Pre rada pokažemo dokle realno može da se ide sa tvojim zubima.</p>
+      </div>
+      <div class="service-item reveal pre">
+        <div class="service-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 19 6v5.5c0 4.2-2.9 7.6-7 9-4.1-1.4-7-4.8-7-9V6l7-2.5Z"/><path d="m9 12 2 2 4-4"/></svg>
+        </div>
+        <h3>Oralna hirurgija</h3>
+        <p>Vađenje zuba i umnjaka, hirurške intervencije u lokalnoj anesteziji, sa snimkom urađenim pre zahvata.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="spotlight" id="ortopan" style="background:var(--accent-soft);">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">3D Ortopan centar</span>
+      <h2>Snimak vilice bez odlaska na drugu adresu</h2>
+      <p class="lede">Snimanje traje par minuta - staneš, aparat obiđe glavu i snimak je gotov. Nalaz gledamo zajedno na ekranu odmah, ne za tri dana.</p>
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Panoramski (ortopan) i 3D snimak vilice</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Snimak u digitalnom obliku, nosiš ga i kod drugog lekara</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Snimamo i pacijente koje šalju druge ordinacije</span></li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg><span>Na osnovu snimka planiramo implante i hirurške zahvate</span></li>
+      </ul>
+      <a href="#kontakt" class="btn btn-primary btn-lg" style="margin-top:28px;">Zakaži 3D snimanje</a>
+    </div>
+    <div class="media">
+      <img src="assets/image00011-scaled.jpeg" alt="Ordinacija sa pacijentkinjom u stolici i monitorima na kojima se prikazuju snimci zuba">
+    </div>
+  </div>
+</section>
+
+<section id="radovi">
+  <div class="wrap">
+    <div class="section-head center reveal pre">
+      <span class="eyebrow">Naši radovi</span>
+      <h2>Osmesi urađeni u našoj ordinaciji</h2>
+      <p>Fotografije naših pacijenata, snimljene posle završenog rada. Bez retuširanja i bez filtera.</p>
+    </div>
+    <div class="gallery-grid">
+      <figure class="gallery-item reveal pre">
+        <img src="assets/image00007-scaled.jpg" alt="Osmeh pacijentkinje sa keramičkim krunicama na gornjim zubima">
+        <p>Keramičke krunice, gornja vilica</p>
+      </figure>
+      <figure class="gallery-item reveal pre">
+        <img src="assets/image000112222-scaled.jpg" alt="Osmeh pacijentkinje posle estetskog rada na prednjim zubima">
+        <p>Estetski rad na prednjim zubima</p>
+      </figure>
+      <figure class="gallery-item reveal pre">
+        <img src="assets/image00010-scaled.jpg" alt="Osmeh pacijentkinje posle protetskog rada na gornjoj vilici">
+        <p>Protetski rad, gornja vilica</p>
+      </figure>
+    </div>
+    <p class="gallery-note reveal pre">Hoćeš da vidiš šta je moguće kod tebe? Dođi na pregled, uradimo snimak i kažemo ti konkretno.</p>
   </div>
 </section>
 
 <section id="o-nama" style="background:var(--accent-soft);">
   <div class="wrap">
     <div class="section-head reveal pre">
-      <span class="eyebrow">O nama</span>
-      <h2>Oprema i iskustvo koje vidiš od prvog pregleda</h2>
-      <p>Stomatologija Milosavljević je ordinacija i 3D Ortopan centar u Kraljevu - kompletna nega, bez upućivanja pacijenta na drugu adresu.</p>
+      <span class="eyebrow">O ordinaciji</span>
+      <h2>Stomatologija Milosavljević, Kraljevo</h2>
+      <p>Radimo kao stomatološka ordinacija i kao 3D Ortopan centar - dijagnostiku i terapiju ne deliš na dve adrese i dva termina.</p>
     </div>
-    <div class="about-grid">
-      <div class="about-item reveal pre">
-        <img src="assets/image00010-scaled.jpg" alt="Ordinacija sa dve stomatološke stolice i opremom za 3D dijagnostiku">
-        <h3>Savremena ordinacija</h3>
-        <p>Dve stolice, 3D snimanje i intraoralna kamera pod jednim krovom - bez slanja na dijagnostiku van ordinacije.</p>
+    <div class="facts-grid">
+      <div class="fact-item reveal pre">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></div>
+        <div>
+          <h4>Sve na jednom mestu</h4>
+          <p>Snimanje, plombe, hirurgija i protetika u istoj ordinaciji.</p>
+        </div>
       </div>
-      <div class="about-item reveal pre">
-        <img src="assets/image00007-scaled.jpg" alt="Osmeh pacijentkinje posle estetskog stomatološkog tretmana">
-        <h3>Rezultati koje pacijenti pokažu</h3>
-        <p>Ovo su stvarni osmesi naših pacijenata posle tretmana, ne stok fotografije iz kataloga.</p>
+      <div class="fact-item reveal pre">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg></div>
+        <div>
+          <h4>Digitalna dijagnostika</h4>
+          <p>Snimak gledaš na ekranu zajedno sa nama, pre nego što odlučiš o terapiji.</p>
+        </div>
       </div>
-      <div class="about-item reveal pre">
-        <img src="assets/image00011-scaled.jpeg" alt="Osmeh pacijentkinje posle stomatološke terapije u ordinaciji Milosavljević">
-        <h3>Pažnja na detalj</h3>
-        <p>Svaki rad prilagođavamo obliku lica i preostalim zubima pacijenta, ne gotovom kalupu.</p>
+      <div class="fact-item reveal pre">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg></div>
+        <div>
+          <h4>Rad po terminima</h4>
+          <p>Dobiješ tačno vreme dolaska, pa ne čekaš red u hodniku.</p>
+        </div>
+      </div>
+      <div class="fact-item reveal pre">
+        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4.5 19 7v5c0 4-2.9 7.3-7 8.5-4.1-1.2-7-4.5-7-8.5V7l7-2.5Z"/></svg></div>
+        <div>
+          <h4>Rad sa decom</h4>
+          <p>Deci objašnjavamo svaki korak pre nego što ga uradimo.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -492,39 +675,86 @@
 <section class="contact" id="kontakt">
   <div class="wrap">
     <div class="section-head reveal pre">
-      <span class="eyebrow">Kontakt</span>
-      <h2>Zakaži pregled u Kraljevu</h2>
-      <p>Javi se telefonom ili nam pošalji poruku - odgovaramo isti dan.</p>
+      <span class="eyebrow">Kontakt i termini</span>
+      <h2>Zakaži termin</h2>
+      <p>Pozovi ordinaciju ili ostavi broj u formi. Javljamo se istog radnog dana i dogovaramo termin koji ti odgovara.</p>
     </div>
-    <div class="contact-items">
-      <div class="contact-item reveal pre">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8 10a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></div>
-        <div>
-          <h4>Telefon ordinacije</h4>
-          <p class="ph">Upisati broj telefona</p>
+    <div class="contact-grid">
+      <div class="reveal pre">
+        <div class="contact-item">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.9.7 2.8a2 2 0 0 1-.4 2.1L8 10a16 16 0 0 0 6 6l1.4-1.4a2 2 0 0 1 2.1-.4c.9.3 1.9.6 2.8.7a2 2 0 0 1 1.7 2Z"/></svg></div>
+          <div>
+            <h4>Telefon ordinacije</h4>
+            <p class="ph">Upisati broj telefona</p>
+          </div>
         </div>
+        <div class="contact-item">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div>
+            <h4>Lokacija</h4>
+            <p>Kraljevo<br><span class="ph">Upisati ulicu i broj</span></p>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+          <div>
+            <h4>Radno vreme</h4>
+            <ul>
+              <li><span>Pon - pet</span><span class="ph">radno vreme</span></li>
+              <li><span>Subota</span><span class="ph">radno vreme</span></li>
+              <li><span>Nedelja</span><span class="ph">radno vreme</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="placeholder-block">Mapa: lokacija ordinacije u Kraljevu</div>
       </div>
-      <div class="contact-item reveal pre">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div>
-          <h4>Lokacija</h4>
-          <p>Kraljevo<br><span class="ph">Upisati ulicu i broj</span></p>
-        </div>
-      </div>
-      <div class="contact-item reveal pre">
-        <div class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <div>
-          <h4>Radno vreme</h4>
-          <ul>
-            <li><span>Pon - pet</span><span class="ph">radno vreme</span></li>
-            <li><span>Subota</span><span class="ph">radno vreme</span></li>
-          </ul>
-        </div>
+
+      <div class="book-card reveal pre" id="bookCard">
+        <h3>Ostavi broj, mi te zovemo</h3>
+        <p>Popuni polja i javljamo se sa slobodnim terminima.</p>
+        <form id="bookForm">
+          <div class="field-row">
+            <div class="field">
+              <label for="ime">Ime i prezime</label>
+              <input type="text" id="ime" name="ime" placeholder="Npr. Marija Petrović" required>
+            </div>
+            <div class="field">
+              <label for="telefon">Telefon</label>
+              <input type="tel" id="telefon" name="telefon" placeholder="Tvoj broj telefona" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="usluga">Zbog čega dolaziš</label>
+            <select id="usluga" name="usluga">
+              <option>Pregled i savet</option>
+              <option>3D Ortopan snimanje</option>
+              <option>Plomba ili lečenje kanala</option>
+              <option>Implant</option>
+              <option>Krunice, mostovi, proteza</option>
+              <option>Beljenje ili fasete</option>
+              <option>Vađenje zuba ili umnjaka</option>
+              <option>Pregled za dete</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="poruka">Kada ti odgovara termin</label>
+            <textarea id="poruka" name="poruka" placeholder="Npr. radnim danima posle 16h"></textarea>
+          </div>
+          <button class="btn btn-primary btn-lg" type="submit" style="width:100%;">Pošalji zahtev za termin</button>
+          <p class="form-note">Podatke koristimo samo da te pozovemo i dogovorimo termin.</p>
+        </form>
+        <div class="form-success">Hvala! Poruka je zabeležena - javljamo se uskoro na ostavljeni broj.</div>
       </div>
     </div>
-    <div class="contact-cta">
-      <a href="#kontakt" class="btn btn-primary btn-lg">Zakaži pregled</a>
-      <a href="tel:" class="btn btn-outline" style="border-color:rgba(255,255,255,.3);color:#fff;">Pozovi ordinaciju</a>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="wrap">
+    <div class="cta-band reveal pre">
+      <h2>Zub neće sam proći</h2>
+      <p>Dođi na pregled, uradimo snimak i tačno ti kažemo šta treba, koliko traje i koliko košta. Bez naknadnih iznenađenja.</p>
+      <a href="#kontakt" class="btn btn-primary btn-lg">Zakaži pregled u Kraljevu</a>
     </div>
   </div>
 </section>
@@ -534,19 +764,21 @@
     <div class="footer-top">
       <div class="footer-brand">
         <img src="assets/logo.png" alt="Stomatologija Milosavljević - logo">
-        <p>Stomatološka ordinacija i 3D Ortopan dijagnostički centar u Kraljevu. Nega i dijagnostika na jednom mestu.</p>
+        <p>Stomatološka ordinacija i 3D Ortopan dijagnostički centar u Kraljevu. Dijagnostika i terapija na jednom mestu.</p>
       </div>
       <div class="footer-col">
         <h4>Stranica</h4>
         <ul>
           <li><a href="#usluge">Usluge</a></li>
-          <li><a href="#o-nama">O nama</a></li>
-          <li><a href="#kontakt">Kontakt</a></li>
+          <li><a href="#ortopan">3D Ortopan</a></li>
+          <li><a href="#radovi">Naši radovi</a></li>
+          <li><a href="#o-nama">O ordinaciji</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h4>Kontakt</h4>
         <ul>
+          <li><a href="#kontakt">Zakaži termin</a></li>
           <li><span style="font-size:15px;color:var(--text-muted);">Kraljevo</span></li>
           <li><span class="ph">Upisati broj telefona</span></li>
         </ul>
@@ -578,6 +810,12 @@
       burger.classList.remove('open');
       menu.classList.remove('open');
     });
+  });
+
+  var bookForm = document.getElementById('bookForm');
+  bookForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('bookCard').classList.add('sent');
   });
 
   if ('IntersectionObserver' in window) {
