@@ -429,19 +429,15 @@
   .book-card.sent form{display:none;}
   .book-card.sent .form-success{display:block;}
 
-  /* ---------- Closing CTA band ---------- */
-  .cta-section{padding-top:0;}
-  .cta-band{
-    background:var(--accent);
-    color:#fff;
-    border-radius:28px;
-    padding:56px 32px;
-    text-align:center;
-  }
-  .cta-band h2{color:#fff;font-size:clamp(26px,3.2vw,34px);margin-bottom:14px;}
-  .cta-band p{color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 28px;font-size:16.5px;}
-  .cta-band .btn-primary{background:#fff;color:var(--accent-dark);}
-  .cta-band .btn-primary:hover{background:#eef3fc;}
+  /* ---------- Closing CTA (cta57.tsx struktura: sekcija sa standardnim
+     padding-om, centriran sadrzaj uzeg max-width-a - bez izmisljene "trake" i
+     bez nuliranja padding-a, to je bio bag) ---------- */
+  .cta-section{background:var(--accent);color:#fff;}
+  .cta-section .inner{max-width:512px;margin:0 auto;text-align:center;}
+  .cta-section h2{color:#fff;font-size:clamp(26px,3.2vw,34px);margin-bottom:14px;}
+  .cta-section p{color:rgba(255,255,255,.85);font-size:16.5px;}
+  .cta-section .btn-primary{background:#fff;color:var(--accent-dark);margin-top:24px;}
+  .cta-section .btn-primary:hover{background:#eef3fc;}
 
   /* ---------- Footer ---------- */
   footer{border-top:1px solid var(--border);padding-top:56px;padding-bottom:32px;}
@@ -751,7 +747,7 @@
 
 <section class="cta-section">
   <div class="wrap">
-    <div class="cta-band reveal pre">
+    <div class="inner reveal pre">
       <h2>Zub neće sam proći</h2>
       <p>Dođi na pregled, uradimo snimak i tačno ti kažemo šta treba, koliko traje i koliko košta. Bez naknadnih iznenađenja.</p>
       <a href="#kontakt" class="btn btn-primary btn-lg">Zakaži pregled u Kraljevu</a>
